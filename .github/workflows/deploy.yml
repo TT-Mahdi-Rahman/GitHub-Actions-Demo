@@ -22,7 +22,7 @@ jobs:
           subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
 
       - name: Deploy Azure Storage Account
-        shell: powershell
+        shell: pwsh
         run: |-
           az deployment sub create -n 'deploySa' -l 'uksouth' -f '.\infra\main.bicep' -p '.\infra\main.bicepparam'
 
