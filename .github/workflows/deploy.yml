@@ -9,7 +9,7 @@ permissions:
 jobs:
   build: 
     runs-on: ubuntu-latest
-
+    environment: dev
     steps:
       - name: checkout
         uses: actions/checkout@main
@@ -20,9 +20,9 @@ jobs:
           client-id: ${{ secrets.AZURE_CLIENT_ID }}
           tenant-id: ${{ secrets.AZURE_TENANT_ID }}
           subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
-
+          
       - name: Deploy Azure Storage Account
         shell: pwsh
         run: |-
-          az deployment sub create -n 'deploySa' -l 'uksouth' -f './infra/main.bicep' -p './infra/main.bicepparam'
+          az deployment group create -n 'deploySa' -g "${{ vars.rgName }}" -f './infra/main.bicep' -p './infra/main.bicepparam'
 
