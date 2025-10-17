@@ -23,7 +23,10 @@ jobs:
           subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
 
       - name: Deploy Azure Storage Account
-        shell: pwsh
-        run: |-
-          az deployment group create -n 'deploySa' -g "$rgName" -f './infra/main.bicep' -p './infra/main.bicepparam'
+        shell: bash
+        run: |
+          az deployment group create \
+            --name deploySa \
+            --resource-group "${{ vars.rgName }}" \
+            --parameters ./infra/main.bicepparam
 
