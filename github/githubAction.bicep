@@ -37,6 +37,16 @@ resource identityGithubActionsApplications 'Microsoft.Graph/applications@v1.0' =
     issuer: githubOIDCProvider
     subject: gitHubActionsFederatedIDentitySubject
   }
+
+  resource githubFederatedIdentityCredentialDev 'federatedIdentityCredentials@v1.0' = {
+    name: '${identityGithubActionsApplications.uniqueName}/githubFederatedIdentityCredential-dev'
+    audiences: [ 
+      microsoftEntraAudience 
+    ]
+    issuer: githubOIDCProvider
+    subject: 'repo:${gitHubOwner}/${gitHubRepo}:environment:dev'
+  }
+
 }
 
 // deploying service principal for the entra application
