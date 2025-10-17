@@ -1,5 +1,8 @@
 extension microsoftGraphV1
 
+// This script deploys an entra application to set up a federated workload identity in the the tenant. 
+// Ensure to have permissions in the tenant such as Application Admin and Directory Reader
+
 // params
 @description('The owner of the Github orgniazation that is assigned to a workload identity')
 param gitHubOwner string
