@@ -7,6 +7,7 @@ param location string
 
 // deploy storage account
 module storageAccount 'br/public:avm/res/storage/storage-account:0.27.1' = {
+  name: 'deploySa'
   params: {
     name: saName
     location: location

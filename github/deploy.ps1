@@ -7,4 +7,4 @@ $rgname = "mahdi-demo"
 az group create --location "uksouth" --name $rgname
 
 # deploy identity
-az deployment group create --resource-group $rgname --template-file githubAction.bicep --parameters githubAction.bicepparam
+az deployment group create --resource-group $rgname --template-file .\github\githubAction.bicep --parameters .\github\githubAction.bicepparam
