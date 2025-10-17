@@ -26,7 +26,7 @@ jobs:
         shell: bash
         run: |
           az deployment group create \
-            --name deploySa \
+            --name deployStorageAccount \
             --resource-group "${{ vars.rgName }}" \
             --parameters ./infra/main.bicepparam
 
