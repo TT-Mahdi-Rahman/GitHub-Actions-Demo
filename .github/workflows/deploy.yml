@@ -9,8 +9,9 @@ permissions:
 jobs:
   build: 
     runs-on: ubuntu-latest
-    env:
-      rgName: "${{ vars.rgName }}"
+    # env:
+    #   rgName: "${{ vars.rgName }}"
+    environment: dev
     steps:
       - name: checkout
         uses: actions/checkout@main
